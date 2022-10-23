@@ -1,3 +1,9 @@
+//проблема 7.
+//Телефон: id, Фамилия, Имя, Отчество, Адрес, Номер кредитной карты, Дебетовая, Кредитная, Время городских и междугородних звонков.
+//Создайте массив объектов. Выход:
+//а) сведения об абонентах, время внутригородских вызовов которых превышает установленное время;
+//б) сведения об абонентах, пользовавшихся междугородней связью;
+//в) информация об абонентах в алфавитном порядке.
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -33,7 +39,7 @@ public class problem7 {
             System.out.println("original list: " + '\n' + s);
         }
 
-        Collections.sort(phoneArrayList, new SortAtymen());
+        Collections.sort(phoneArrayList, new SortName());
         for (Phone s : phoneArrayList){
             System.out.println("sorted list: " + '\n' + s);
         }
@@ -151,9 +157,50 @@ class Phone{
         return result;
     }
 }
-class SortAtymen implements Comparator<Phone> {
+class SortName implements Comparator<Phone> {
     @Override
     public int compare(Phone o1, Phone o2) {
         return o1.getName().compareTo(o2.getName());
     }
 }
+//1 has minutes among city calls: 15
+//2 has minutes among city calls: 20
+//3 has minutes among city calls: 15
+//4 has minutes among city calls: 7
+//5 has minutes among city calls: 15
+//1 has more minutes than 15 in city: 20
+//2 has more minutes than 15 in city: 25
+//3 has more minutes than 15 in city: 30
+//5 has more minutes than 15 in city: 40
+//original list:
+//
+//id: 1  Surname: Alina  Name: Tanatar  Middle Name: Mukhitkyzy  Adress: Almaty  Credit card number: 87079858633  Debet: 15000  Credit: 50000000  Time in city: 20  Time among cities15
+//original list:
+//
+//id: 2  Surname: Aizhan  Name: Zhumashova  Middle Name: Kurmashevna  Adress: Taldykorgan  Credit card number: 87706783290  Debet: 27000  Credit: 1200000  Time in city: 25  Time among cities20
+//original list:
+//
+//id: 3  Surname: Yuki  Name: Rashid  Middle Name: Kuanyshovna  Adress: Merki  Credit card number: 8709021331  Debet: 83000  Credit: 454000  Time in city: 30  Time among cities15
+//original list:
+//
+//id: 4  Surname: Ainur  Name: Namaz  Middle Name: Namaz  Adress: Taraz  Credit card number: 87778968912  Debet: 9000  Credit: 32000  Time in city: 10  Time among cities7
+//original list:
+//
+//id: 5  Surname: Akzhan  Name: Bembeyaz  Middle Name: Bakytkyzy  Adress: Taraz  Credit card number: 87011138000  Debet: 51400  Credit: 170000  Time in city: 40  Time among cities15
+//sorted list:
+//
+//id: 5  Surname: Akzhan  Name: Bembeyaz  Middle Name: Bakytkyzy  Adress: Taraz  Credit card number: 87011138000  Debet: 51400  Credit: 170000  Time in city: 40  Time among cities15
+//sorted list:
+//
+//id: 4  Surname: Ainur  Name: Namaz  Middle Name: Namaz  Adress: Taraz  Credit card number: 87778968912  Debet: 9000  Credit: 32000  Time in city: 10  Time among cities7
+//sorted list:
+//
+//id: 3  Surname: Yuki  Name: Rashid  Middle Name: Kuanyshovna  Adress: Merki  Credit card number: 8709021331  Debet: 83000  Credit: 454000  Time in city: 30  Time among cities15
+//sorted list:
+//
+//id: 1  Surname: Alina  Name: Tanatar  Middle Name: Mukhitkyzy  Adress: Almaty  Credit card number: 87079858633  Debet: 15000  Credit: 50000000  Time in city: 20  Time among cities15
+//sorted list:
+//
+//id: 2  Surname: Aizhan  Name: Zhumashova  Middle Name: Kurmashevna  Adress: Taldykorgan  Credit card number: 87706783290  Debet: 27000  Credit: 1200000  Time in city: 25  Time among cities20
+//
+//Process finished with exit code 0

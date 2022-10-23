@@ -1,3 +1,9 @@
+//проблема 5.
+//Книга: id, Название, Автор(ы), Издательство, Год издания, Количество страниц, Цена, Тип переплета.
+//Создайте массив объектов. Выход:
+//а) список книг данного автора;
+//б) список книг, изданных данным издательством;
+//в) список книг, выпущенных после данного года.
 import java.util.ArrayList;
 
 public class poblem5{
@@ -6,7 +12,7 @@ public class poblem5{
         Book book1 = new Book(1, "Mieko and the Fifth Treasure", "Eleanor Coerr", "London",  2003, 320, 3000, "Saddle stitch binding");
         Book book2 = new Book(2, "Charlotte's Web", "Alvin Brooks White", "Almaty",  1921, 453, 1700, "Coptic stitch binding");
         Book book3 = new Book(3, "The Outsiders", "S.E. Hinton", "New York",  1865, 628, 990, "Coptic stitch binding");
-        Book book4 = new Book(4, "The Old Man and the Sea", "Ernest Hemmingway", "Mura",  2017, 245, 5000, "Saddle stitch binding");
+        Book book4 = new Book(4, "The Old Man and the Sea", "Ernest Hemmingway", "Manhattan",  2017, 245, 5000, "Saddle stitch binding");
         Book book5 = new Book(5, "The GiverPhysics", "Lois Lowry", "Astana",  1987, 408, 12700, "Saddle stitch binding");
 
         bookArrayList.add(book1);
@@ -22,8 +28,8 @@ public class poblem5{
         }
 
         for (Book s : bookArrayList){
-            if(s.getPublishingHouse().equals("London")){
-                System.out.println(s.name + " is London publishing house's book");
+            if(s.getPublishingHouse().equals("New York")){
+                System.out.println(s.name + " is New York publishing house's book");
             }
         }
 
@@ -125,3 +131,7 @@ class Book{
         return result;
     }
 }
+//Charlotte's Web is Alvin Brooks White's book
+//The Outsiders is New York publishing house's book
+//Mieko and the Fifth Treasure 2003
+//The Old Man and the Sea 2017

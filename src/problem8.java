@@ -1,3 +1,9 @@
+//problem 8.
+//Car: id, Brand, Model, Year of issue, Color, Price, Registration number.
+//Create an array of objects. Output:
+//a) a list of cars of a given brand;
+//b) a list of cars of a given model that have been in operation for more than n years;
+//c) a list of cars of a given year of manufacture, the price of which is higher than the specified one
 import java.util.ArrayList;
 
 public class problem8 {
@@ -23,7 +29,7 @@ public class problem8 {
         }
 
         for (Car s : carArrayList){
-            if (s.stamp.equals("Mercedes") && s.yearRelease < 2021){
+            if (s.stamp.equals("Mercedes") && s.yearRelease < 2022){
                 System.out.println(s);
             }
         }
@@ -44,16 +50,16 @@ class Car{
     int yearRelease;
     String color;
     int price;
-    String registrationNum;
+    String Number;
 
-    public Car(int id, String stamp, String model, int yearRelease, String color, int price, String registrationNum){
+    public Car(int id, String stamp, String model, int yearRelease, String color, int price, String Number){
         this.id = id;
         this.stamp = stamp;
         this.model = model;
         this.yearRelease = yearRelease;
         this.color = color;
         this.price = price;
-        this.registrationNum = registrationNum;
+        this.Number = Number;
     }
 
     public int getId() {
@@ -104,15 +110,20 @@ class Car{
         this.price = price;
     }
 
-    public String getRegistrationNum() {
-        return registrationNum;
+    public String Number() {
+        return Number;
     }
 
-    public void setRegistrationNum(String registrationNum) {
-        this.registrationNum = registrationNum;
+    public void Number(String Number) {
+        this.Number = Number;
     }
     public String toString() {
-        String result = "\nid: " + id + "  Stemp: " + stamp + "  Model: " + model + "  Year Release: " + yearRelease+"  Color: "+color+"  Price: "+price+"  Registration number: "+registrationNum;
+        String result = "\nid: " + id + "  Stemp: " + stamp + "  Model: " + model + "  Year Release: " + yearRelease+"  Color: "+color+"  Price: "+price+"  Registration number: "+Number;
         return result;
     }
 }
+//id: 2  Stemp: Mercedes  Model: s63  Year Release: 2020  Color: white  Price: 30000  Registration number: 784512
+//
+//id: 2  Stemp: Mercedes  Model: s63  Year Release: 2020  Color: white  Price: 30000  Registration number: 784512
+//
+//id: 5  Stemp: Volkswagen  Model: Golf  Year Release: 2002  Color: green  Price: 1200  Registration number: 74128963

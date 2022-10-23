@@ -1,13 +1,19 @@
+//Проблема 6.
+//Дом: id, Номер квартиры, Площадь, Этаж, Количество комнат, Улица, Тип здания, Срок эксплуатации.
+//Создайте массив объектов. Выход:
+//а) список квартир с заданным количеством комнат;
+//б) список квартир с заданным количеством комнат и расположенных на этаже, находящемся в заданном интервале;
+//в) перечень квартир, площадь которых превышает указанную
 import java.util.ArrayList;
 
 public class problem6 {
     public static void main(String [] args){
         ArrayList<House> houseArrayList = new ArrayList<>();
-        House house1 = new House(1, 15, 10, 5, 2, "Beverly", "kirpish", 50);
-        House house2 = new House(2, 20, 50, 2,  9, "takhom", "agash", 50);
-        House house3 = new House(3, 18, 68, 3,  6, "Junisaliev", "tas", 50);
-        House house4 = new House(4, 154, 87, 3,  2, "pushkin", "tas", 50);
-        House house5 = new House(5, 205, 89, 4, 7, "mambetbatyr", "kirpish", 50);
+        House house1 = new House(1, 15, 10, 5, 2, "Allen", "brick", 50);
+        House house2 = new House(2, 20, 50, 2,  9, "Barkley", "tree", 50);
+        House house3 = new House(3, 18, 68, 3,  6, "Avenue", "stone", 50);
+        House house4 = new House(4, 154, 87, 3,  2, "Cliff", "brick", 50);
+        House house5 = new House(5, 205, 89, 4, 7, "Ludlow", "tree", 50);
 
         houseArrayList.add(house1);
         houseArrayList.add(house2);
@@ -121,3 +127,10 @@ class House{
         return result;
     }
 }
+//15 2 rooms
+//154 2 rooms
+//
+//id: 4  Number: 154  Area: 87  Floor: 3  Quantity Of Rooms: 2  Street: Cliff  Type Of Building: brick  Service Life: 50
+//18 area: 68
+//154 area: 87
+//205 area: 89

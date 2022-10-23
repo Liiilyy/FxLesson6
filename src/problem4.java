@@ -1,3 +1,10 @@
+//проблема 4.
+//Абитуриент: id, Фамилия, Имя, Отчество, Адрес, Телефон, Оценки.
+//Создайте массив объектов. Выход:
+//а) список поступающих с неудовлетворительными оценками;
+//б) список абитуриентов, у которых баллы выше указанного;
+//c) выбрать заданное количество n претендентов с наибольшим общим баллом (также вывести полный список претендентов с полупроходной суммой).
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,19 +27,19 @@ public class problem4 {
         list3E.add(student5);
 
         for (Abiturent s : list3E){
-            if (s.getGrade() < 70){
-                System.out.println(s.getName() + " " + s.surname + " doesn't have enough grades to 70: " + s.getGrade());
+            if (s.getGrade() < 60){
+                System.out.println(s.getName() + " " + s.surname + " 60ka jetpeidi: " + s.getGrade());
             }
         }
 
         for (Abiturent s : list3E){
-            if (s.getGrade() >= 70){
-                System.out.println(s.getName() + " " + s.surname + " has more grades than 70: " + s.getGrade());
+            if (s.getGrade() >= 60){
+                System.out.println(s.getName() + " " + s.surname + " 60tan asady: " + s.getGrade());
             }
         }
         Collections.sort(list3E, new SortByGrade());
-        System.out.println("students with TOP 3 highest scores: ");
-        for ( int i = 0; i < 3; i++){
+        System.out.println("top2: ");
+        for ( int i = 0; i < 2; i++){
             System.out.println(list3E.get(i));
         }
     }
@@ -45,7 +52,7 @@ class Abiturent{
     String name;
     String middleName;
     String adress;
-    String phoneNum;
+    String phone;
     int grade;
 
     public Abiturent(int id, String surname, String name, String middleName, String adress,
@@ -55,7 +62,7 @@ class Abiturent{
         this.name = name;
         this.middleName = middleName;
         this.adress = adress;
-        this.phoneNum = phoneNum;
+        this.phone = phone;
         this.grade = grade;
     }
     public int getId() {
@@ -99,11 +106,11 @@ class Abiturent{
     }
 
     public String getPhoneNum() {
-        return phoneNum;
+        return phone;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public int getGrade() {
@@ -114,7 +121,7 @@ class Abiturent{
         this.grade = grade;
     }
     public String toString() {
-        String result = "\nid: " + id + "  Name: " + name + "  Sourname: " + surname + "  Fatherhood: " + middleName+"  Address: "+adress+"  Phone number: "+phoneNum+"  Grade: "+grade;
+        String result = "\nid: " + id + "  Name: " + name + "  Sourname: " + surname + "  Fatherhood: " + middleName+"  Address: "+adress+"  Phone number: "+phone+"  Grade: "+grade;
         return result;
     }
 }
@@ -129,3 +136,13 @@ class SortByGrade implements Comparator<Abiturent> {
             return 1;
     }
 }
+//Rashid Yuki 60ka jetpeidi: 59
+//Tanatar Alina 60tan asady: 100
+//Zhumashova Aizhan 60tan asady: 75
+//Namaz Ainur 60tan asady: 83
+//Bembeyaz Akzhan 60tan asady: 67
+//top2:
+//
+//id: 1  Name: Tanatar  Sourname: Alina  Fatherhood: Mukhitkyzy  Address: Almaty  Phone number: null  Grade: 100
+//
+//id: 4  Name: Namaz  Sourname: Ainur  Fatherhood: Namaz  Address: Taraz  Phone number: null  Grade: 83

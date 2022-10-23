@@ -1,3 +1,10 @@
+//проблема 9.
+//Товар: id, Название, UPC, Производитель, Цена, Срок годности, Количество.
+//Создайте массив объектов. Выход:
+//а) перечень товаров для данной позиции;
+//б) перечень товаров по данной позиции, цена которых не превышает данной;
+//в) перечень товаров, срок годности которых превышает установленный
+
 import java.util.ArrayList;
 
 public class promlem9 {
@@ -126,3 +133,7 @@ class Product{
                 '}';
     }
 }
+//Product{id=4, name='Zara', UPC='8524623', manufacturer='Namaz', price=18, shelfLife='10', quantity=98}
+//Product{id=1, name='Milka', UPC='8754125', manufacturer='Mukhitkyzy', price=12, shelfLife='8', quantity=15}
+//Product{id=2, name='Small', UPC='96345125', manufacturer='Kurmashevna', price=25, shelfLife='7', quantity=23}
+//Product{id=4, name='Zara', UPC='8524623', manufacturer='Namaz', price=18, shelfLife='10', quantity=98}

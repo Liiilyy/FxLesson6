@@ -1,16 +1,22 @@
+//Проблема2
+//Клиент: идентификатор, фамилия, имя, отчество, адрес, номер кредитной карты, номер банковского счета.
+//Создайте массив объектов. Выход:
+//а) список покупателей в алфавитном порядке;
+//б) список клиентов, номер кредитной карты которых находится в заданном диапазоне.
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 public class problem2 {
     public static void main (String[] args) {
-        Buyer student1 = new Buyer(1, "Alina", "Tanatar", "Mukhitkyzy", 7734204, "Almaty", "87079858633");
-        Buyer student2 = new Buyer(2, "Aizhan", "Zhumashova", "Kurmashevna", 2572003, "Taldykorgan", "87706783290");
-        Buyer student3 = new Buyer(3, "Yuki", "Rashid", "Kuanyshovna", 1632004, "Merki", "8709021331");
-        Buyer student4 = new Buyer(4, "Ainur", "Namaz", "Namaz", 18102005, "Taraz", "87778968912");
-        Buyer student5 = new Buyer(5, "Akzhan", "Bembeyaz", "Bakytkyzy", 2532005, "Taraz", "87011138000");
+        Buyers student1 = new Buyers(1, "Alina", "Tanatar", "Mukhitkyzy", 7734204, "Almaty", "87079858633");
+        Buyers student2 = new Buyers(2, "Aizhan", "Zhumashova", "Kurmashevna", 2572003, "Taldykorgan", "87706783290");
+        Buyers student3 = new Buyers(3, "Yuki", "Rashid", "Kuanyshovna", 1632004, "Merki", "8709021331");
+        Buyers student4 = new Buyers(4, "Ainur", "Namaz", "Namaz", 18102005, "Taraz", "87778968912");
+        Buyers student5 = new Buyers(5, "Akzhan", "Bembeyaz", "Bakytkyzy", 2532005, "Taraz", "87011138000");
 
-        ArrayList<Buyer> list3E = new ArrayList<>();
+        ArrayList<Buyers> list3E = new ArrayList<>();
         list3E.add(student1);
         list3E.add(student2);
         list3E.add(student3);
@@ -18,10 +24,10 @@ public class problem2 {
         list3E.add(student5);
 
         Collections.sort(list3E, new SortByName());
-        for (Buyer s : list3E){
+        for (Buyers s : list3E){
             System.out.println(s);
         }
-        for (Buyer s : list3E){
+        for (Buyers s : list3E){
             if (s.getCreditNumber() > 1500000 && s.getCreditNumber() < 2500000){
                 System.out.println(s.getName() + " " + s.getSourname() + " " + s.getSourname());
             }
@@ -29,14 +35,14 @@ public class problem2 {
 
     }
 }
-class  Buyer{
+class  Buyers{
     int id;
     String name;
     String sourname;
     String fatherhood;
-    String address;
-    int creditNumber;
-    String phoneNumber;
+    String adress;
+    int creditNum;
+    String phone;
 
     public int getId() {
         return id;
@@ -60,34 +66,46 @@ class  Buyer{
         this.fatherhood = fatherhood;
     }
     public int getCreditNumber() {
-        return creditNumber;
+        return creditNum;
     }
-    public void setCreditNumber(int creditNumber) {
-        this.creditNumber = creditNumber;
+    public void setCreditNum(int creditNum) {
+        this.creditNum = creditNum;
     }
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
-    public Buyer(int id,String name,String sourname ,String fatherhood,int creditNumber,String address, String phoneNumber) {
+    public Buyers(int id,String name,String sourname ,String fatherhood,int creditNum,String address, String phone) {
         this.id = id;
         this.name = name;
         this.sourname = sourname;
         this.fatherhood = fatherhood;
-        this.address = address;
-        this.creditNumber=creditNumber;
-        this.phoneNumber = phoneNumber;
+        this.adress = address;
+        this.creditNum=creditNum;
+        this.phone = phone;
     }
     public String toString() {
-        String result = "\nid: " + id + "  Name: " + name + "  Sourname: " + sourname + "  Fatherhood: " + fatherhood+"  CreditCard: "+creditNumber+"  Address: "+address+"  Phone number: "+phoneNumber;
+        String result = "\nid: " + id + "  Name: " + name + "  Sourname: " + sourname + "  Fatherhood: " + fatherhood+"  CreditCard: "+creditNum+"  Address: "+adress+"  Phone number: "+phone;
         return result;
     }
 }
-class SortByName implements Comparator<Buyer> {
+class SortByName implements Comparator<Buyers> {
     @Override
-    public int compare(Buyer name1, Buyer name2) {
+    public int compare(Buyers name1, Buyers name2) {
         return name1.getName().compareTo(name2.getName());
     }
 }
+//id: 4  Name: Ainur  Sourname: Namaz  Fatherhood: Namaz  CreditCard: 18102005  Address: Taraz  Phone number: 87778968912
+//
+//id: 2  Name: Aizhan  Sourname: Zhumashova  Fatherhood: Kurmashevna  CreditCard: 2572003  Address: Taldykorgan  Phone number: 87706783290
+//
+//id: 5  Name: Akzhan  Sourname: Bembeyaz  Fatherhood: Bakytkyzy  CreditCard: 2532005  Address: Taraz  Phone number: 87011138000
+//
+//id: 1  Name: Alina  Sourname: Tanatar  Fatherhood: Mukhitkyzy  CreditCard: 7734204  Address: Almaty  Phone number: 87079858633
+//
+//id: 3  Name: Yuki  Sourname: Rashid  Fatherhood: Kuanyshovna  CreditCard: 1632004  Address: Merki  Phone number: 8709021331
+//Yuki Rashid Rashid
+//
+//Process finished with exit code 0
